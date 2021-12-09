@@ -171,6 +171,90 @@ var config = convict({
       }
 
   },
+
+  JWT_TOKEN: {
+    SECRET: {
+      doc: 'Holds the JWT secret',
+      format: String,
+      default: 'nav123'
+    },
+    ALGORITHM: {
+      doc: 'Holds the JWT Algorithm',
+      format: String,
+      default: 'HS512'
+    },
+    expireTime: {
+      doc: 'Holds the JWT Token Expiration Time',
+      format: String,
+      default: '1d'
+    },
+    ttl: {
+      doc: 'Holds the JWT Token Time to Leave',
+      format: Number,
+      default: 86400000
+    }
+  },
+  logger: {
+    httpLogFormat: {
+      doc: 'HTTP log format',
+      format: String,
+      default: ':remote-addr - :remote-user [:date] ":method :url HTTP/:http-version" :status :res[content-length] | :response-time ms ":referrer" ":user-agent"'
+    },
+    httpLogFileName: {
+      doc: 'HTTP log File name',
+      format: String,
+      default: 'http.log'
+    },
+    logFileName: {
+      doc: 'Log File name',
+      format: String,
+      default: 'logs.log'
+    },
+    exceptionLogFileName: {
+      doc: 'Exception log File name',
+      format: String,
+      default: 'exceptions.log'
+    },
+    logFileSize: {
+      doc: 'logs File Max File size',
+      format: Number,
+      default: 5242880
+    },
+    path: {
+      doc: 'Holds the Log Path',
+      format: String,
+      default: './logs/'
+    }
+  },
+
+  mailer: {
+    host: {
+      doc: 'Mailer Host',
+      format: String,
+      default: 'smtp.gmail.com',
+    },
+    port: {
+      doc: 'Mailer Port',
+      format: Number,
+      default: 587
+    },
+    email: {
+      doc: 'Mailer Authentication Email',
+      format: String,
+      default: 'navneetdubey989@gmail.com',
+    },
+    password: {
+      doc: 'Mailer Authentication Password',
+      format: String,
+      default: 'xmvu bxri ulvj asbf'
+    },
+    supportMail: {
+      doc: 'Mailer Support Email',
+      format: String,
+      default: 'navneetdubey989@gmail.com',
+    }
+
+  },
   admins: {
     doc: 'Users with write access, or null to grant full access without login.',
     format: Array,
