@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
-const service = require('../modules/user/service')
+const config = require('../configuration/config')
+
 
 
 
@@ -10,9 +11,11 @@ module.exports = {
         if (token) {
             token = token.slice(7);
 
-            jwt.verify(token, service.jwtkey, async (err, authdata) => {
+            jwt.verify(token,config.get('JWT_TOKEN.SECRET'), async (err, authdata) => {
                 if (err) {
-                    res.status(400).json({message:err});
+                    res.status(400).json({
+                        message: err
+                    });
                     throw err;
                 } else {
                     console.log("User:-", token);
