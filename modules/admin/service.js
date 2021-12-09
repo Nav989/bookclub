@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const db = require('../../database/mysql.js');
 var mailer = require('../../utils/mailer');
-const saltRounds = 12;
 
 
 const Users = db.User;
@@ -32,7 +31,7 @@ const editUser = async(req,res)=>{
     if (req.body.password === req.body.cpassword) {
 
         const password = req.body.password;
-        const encryptedPassword = await bcrypt.hash(password, saltRounds)
+        const encryptedPassword = await bcrypt.hash(password, config.get('server.security.salt'))
 
         const editData = await Users.update({
             name: name,
@@ -104,7 +103,7 @@ const editUser = async(req,res)=>{
     const createUser=async(req,res)=>{
     const {user_type,name,surname,dob,email,password} = req.body
 
-        const encryptedPassword = await bcrypt.hash(password, saltRounds)
+        const encryptedPassword = await bcrypt.hash(password, config.get('server.security.salt'))
         console.log(encryptedPassword);
 
         const createData = await Users.create({
