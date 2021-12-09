@@ -25,7 +25,7 @@ db.sequelize = sequelize;
 db.User = require('../models/RegisterSchema')(sequelize, DataTypes);
 db.Book = require('../models/bookListSchema')(sequelize, DataTypes);
 db.otp  = require('../models/otpSchema')(sequelize, DataTypes);
-db.userbook =  require('../modules/user/user_schema')(sequelize, DataTypes);
+db.userbook =  require('../models/user_book_schema')(sequelize, DataTypes);
 
 
 db.Book.hasMany(db.userbook);
@@ -34,7 +34,3 @@ db.userbook.belongsTo(db.Book);
 db.User.hasMany(db.userbook)
 db.userbook.belongsTo(db.User)
 module.exports = db;
-
-
-// ,{foreignKey:"RegReaderId",as:"bookdetails"}
-// ,{foreignKey:"RegReaderId",as:"bookdetails"}
