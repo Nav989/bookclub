@@ -1,22 +1,23 @@
 var nodemailer = require('nodemailer');
+const config = require('../configuration/config')
 
 
 const mailer =(email,message,subject)=>{
 
 
     var transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port:587,
+      host: config.get('mailer.host'),
+      port: config.get('mailer.port'),
       secure:false,
       requireTLS:true,
       auth: {
-        user: 'navneetdubey989@gmail.com',
-        pass: 'xmvu bxri ulvj asbf'
+        user: config.get('mailer.email'),
+        pass: config.get('mailer.password')
       }
     });
     
     var mailOptions = {
-      from: 'navneetdubey989@gmail.com',
+      from: config.get('mailer.supportMail'),
       to: email,
       subject: subject,
       text: message,
