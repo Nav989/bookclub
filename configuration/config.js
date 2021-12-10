@@ -171,7 +171,6 @@ var config = convict({
       }
 
   },
-
   JWT_TOKEN: {
     SECRET: {
       doc: 'Holds the JWT secret',
@@ -253,7 +252,6 @@ var config = convict({
       format: String,
       default: 'navneetdubey989@gmail.com',
     }
-
   },
   admins: {
     doc: 'Users with write access, or null to grant full access without login.',
@@ -269,8 +267,6 @@ config.loadFile(path.join(__dirname, '/config-' + env + '.json'))
  
 // Perform validation
 config.validate();
-
-
 
 module.exports = config;
 
