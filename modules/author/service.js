@@ -108,7 +108,6 @@ const emailSend = async (req, res) => {
             }
         })
 
-
         if (findUser) {
 
             let otpcode = Math.floor((Math.random() * 10000) + 1);
@@ -141,9 +140,7 @@ const emailSend = async (req, res) => {
             })
 
         }
-
-    }
-
+     }
 }
 
 const changePassword = async (req, res) => {
