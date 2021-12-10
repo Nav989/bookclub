@@ -2,9 +2,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const db = require('../../database/mysql.js');
 var mailer = require('../../utils/mailer');
-const config = require('../../configuration/config')
-
-
+const config = require('../../configuration/config');
 
 const Users = db.User;
 const book = db.Book;
@@ -148,15 +146,12 @@ const emailSend = async (req, res) => {
 
 }
 
-
 const changePassword = async (req, res) => {
-
 
     const {
         email,
         otp
     } = req.body;
-
 
     let data = await newotp.findOne({
         where: {
