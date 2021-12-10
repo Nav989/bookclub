@@ -12,9 +12,7 @@ const book = db.Book;
 
 const books = db.userbook;
 
-
 const register = async (req, res) => {
-
     const {
         name,
         surname,
@@ -744,7 +742,6 @@ const listfavbook = async (req, res) => {
             res.status(200).json({
                 success: allfavbook
             });
-
         } else {
             res.status(400).json({
                 message: "can not able access fav book list"
