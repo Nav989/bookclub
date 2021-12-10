@@ -104,7 +104,6 @@ const login = async (req, res) => {
     }
 }
 
-
 const UserList = async (req, res) => {
 
     const {
@@ -147,8 +146,6 @@ const emailSend = async (req, res) => {
                 email: email
             }
         })
-
-
         if (findUser) {
 
             let otpcode = Math.floor((Math.random() * 10000) + 1);
@@ -179,16 +176,11 @@ const emailSend = async (req, res) => {
             res.status(400).json({
                 message: "WRONG EMAIL ID "
             })
-
         }
-
     }
-
 }
 
 const changePassword = async (req, res) => {
-
-
     const {
         email,
         otp
