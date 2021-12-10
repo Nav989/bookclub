@@ -5,7 +5,6 @@ const routes = require('./routes/index');
 const db=require('./database/mysql');
 const app = express();
 
-
 app.use(bodyParser.urlencoded({
     extended: false
 }))
