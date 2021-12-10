@@ -2,7 +2,6 @@ const bcrypt = require('bcrypt');
 const db = require('../../database/mysql.js');
 var mailer = require('../../utils/mailer');
 
-
 const Users = db.User;
 const book =db.Book;
 
